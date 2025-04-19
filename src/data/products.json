@@ -1,0 +1,44 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "title": "Jean Azul CARG",
+            "description": " Clásico y versátil, este jean azul es la prenda esencial en cualquier guardarropa. Con un corte moderno y ajuste cómodo, es perfecto para combinar con cualquier outfit, desde casual hasta elegante. Hecho con materiales de alta calidad para mayor durabilidad.",
+            "image": "https://drive.google.com/file/d/1Uhdh7RQFb72Gdcvl7uNVlW2r8TMTn-Ie/view?usp=sharing",
+            "price": 50000,
+            "stock": 3,
+            "category": "pantalon",
+            "cliente": "hombre"
+        },
+        {
+            "id": 2,
+            "title": "Jean Gris REG",
+            "description": "Estilo y sofisticación en una sola prenda. Este jean gris ofrece un look urbano y moderno, ideal para quienes buscan diferenciarse con un toque único. Su tejido resistente y cómodo brinda una excelente sensación al vestirlo.",
+            "image": "https://drive.google.com/file/d/1PBmpEhyjfxE2USsie7sGW3wnq5dpAlH9/view?usp=sharing",
+            "price": 45000,
+            "stock": 5,
+            "category": "pantalon",
+            "cliente": "hombre"
+        },
+        {
+            "id": 3,
+            "title": "Jogging Beige JOG",
+            "description": "Elegancia relajada. Este pantalón de jogging en tono beige combina a la perfección comodidad y tendencia. Ideal para looks casuales y deportivos, su diseño moderno te permite verte bien sin esfuerzo.",
+            "image": "https://drive.google.com/file/d/1iGR9EFItRHfd56sqtPR3K89ZjlBUQ7z1/view?usp=sharing",
+            "price": 20000,
+            "stock": 2,
+            "category": "pantalon",
+            "cliente": "adolescente"
+        },
+        {
+            "id": 4,
+            "title": "Jogging Negro JOG",
+            "description": "Comodidad sin perder el estilo. Este pantalón de jogging negro es perfecto para el día a día, ya sea para relajarte en casa o salir con amigos. Su tela suave y flexible garantiza libertad de movimiento y una sensación agradable en todo momento.",
+            "image": "https://drive.google.com/file/d/1rrnYeVAqy9A1_waP7IgRA8NwjD9sDD5E/view?usp=sharing",
+            "price": 20000,
+            "stock": 1,
+            "category": "pantalon",
+            "cliente":"adolescente"
+        }
+    ]
+}

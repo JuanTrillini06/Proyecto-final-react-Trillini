@@ -1,15 +1,25 @@
 import { React } from 'react'
-import './App.css'
+import './css/style.css'
 import NavBar from './components/NavBar'
-import ItemListContainer from './components/container/ItemListContainer'
+import ItemListContainer from './components/ItemListContainer'
+import { PrimeReactProvider } from 'primereact/api';
+import { BrowserRouter as router, Route, Routes, BrowserRouter} from 'react-router-dom';
+import Home from './components/Home';
 
 function App() {
 
   return (
-      <div>
-        <NavBar></NavBar>
-        <ItemListContainer></ItemListContainer>
+    <PrimeReactProvider>
+      <BrowserRouter>
+      <div className="app">
+        <NavBar/>
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<ItemListContainer/>} />
+        </Routes>
       </div>
+      </BrowserRouter> 
+    </PrimeReactProvider>
   )
 }
 
