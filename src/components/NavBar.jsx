@@ -1,36 +1,58 @@
-import React, { useState } from "react";
-import { Menu, Badge } from "antd";
-import { ShoppingCartOutlined, HomeOutlined, } from "@ant-design/icons";
-import Carrito from "./Carrito";
-import "../css/style.css"
-import { Link } from 'react-router-dom'
-
-const { SubMenu } = Menu;
+import React, { useState } from 'react'
+import CartWidget from './CartWidget'
+import { Dropdown } from 'primereact/dropdown'
+import "primereact/resources/themes/lara-light-indigo/theme.css"
+import "primereact/resources/primereact.min.css"
+import '../css/style.css'
+import { useNavigate, Link } from 'react-router-dom'
+import logo from '../assets/TiendaIcono.png'
 
 const Navbar = () => {
+    const [selectedCategory, setSelectedCategory] = useState([]);
+    const navigate = useNavigate();
 
-    const handleClick = (e) => {
-        console.log("Elemento seleccionado:", e.key);
+    const categorias = [
+        { name: 'Hombre', code: 'Hombre' },
+        { name: 'Adolescente', code: 'Adolescente' },
+        { name: 'Niño', code: 'Niño' }
+    ];
+
+    const handleCategoryChange = (e) => {
+        setSelectedCategory(e.value);
+        if (e.value) {
+            navigate(`/category/${e.value.code}`);
+        }
     };
 
     return (
-        <div className="navbar" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-            <Menu className="navbar" onClick={handleClick} mode="horizontal" style={{ flex: 1 }}>
-                <Link to={"home"}>
-                <Menu.Item key="home" ><HomeOutlined></HomeOutlined></Menu.Item>
-                </Link>
-                <SubMenu title="Categoria">
-                    <Menu.Item key="Hombre">Hombre</Menu.Item>
-                    <Menu.Item key="Adolescente">Adolescente</Menu.Item>
-                    <Menu.Item key="Ninio">Niño</Menu.Item>
-                </SubMenu>
-                <Menu.Item key="about">Acerca de</Menu.Item>
-            </Menu>
-            <div style={{ marginRight: 16 }}>
-                <Carrito></Carrito>
+        <nav className="navbar">
+            <Link to={"home"}>  
+                <div>  
+                    <img className='logo' src={logo} alt="Logo de la marca" />
+                </div>
+            </Link>
+            <Link to={"home"}>  
+                <div className="store-name">  
+                    <h1>Juandrobe</h1>
+                </div>
+            </Link>
+            <div className="nav-controls">
+                <div className="dropdown-container">
+                    <Dropdown
+                        value={selectedCategory}
+                        onChange={handleCategoryChange}
+                        options={categorias}
+                        optionLabel="name"
+                        placeholder="Categoria"
+                        className="w-full md:w-14rem dropdown"
+                    />
+                </div>
+                <Link to={"/cart"}>
+                    <CartWidget />
+                </Link>    
             </div>
-        </div>
-    );
-};
+        </nav>
+    )
+}
 
-export default Navbar;
+export default Navbar

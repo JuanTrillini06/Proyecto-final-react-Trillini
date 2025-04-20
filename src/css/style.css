@@ -1,12 +1,226 @@
 .app {
   border-radius: 5px;
+  background-color: #D9E2EC;
 }
 
 .navbar {
-  background-color: gray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #1A3A5F;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
 }
 
+.store-name h1 {
+  margin: 0;
+  padding: 5px;
+  color: #FFFFFF;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 5px;
+}
+
+.dropdown {
+  background-color: #A3C4E8;
+}
+
+.dropdown-container {
+  min-width: 200px;
+}
+
+.logo {
+  width: 5rem;
+  height: 5rem;
+  padding: 5px;
+}
+
+.cart-widget {
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.cart-widget:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.cart-widget i {
+  color: #FFFFFF;
+}
+
+.sale-card {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  transition: all 0.3s ease;
+  border-radius: 16px !important;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sale-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #D9E2EC;
+}
+.sale-content .sale-description {
+  text-align: center;
+}
+
+.carrusel-sale {
+  color: #D9E2EC;
+  text-Align: "center";
+  background-size: cover;
+  border-radius: 5px;
+}
+
+.item-card {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  transition: all 0.3s ease;
+  border-radius: 16px !important;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.item-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.item-image {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+.item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.item-card:hover .item-image img {
+  transform: scale(1.08);
+}
+
+.item-content {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.item-title {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.4rem;
+  color: #1a1a1a;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.item-description {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+  flex: 1;
+}
+
+.item-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+
+.item-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.item-price::before {
+  content: "$";
+  font-size: 1rem;
+  vertical-align: top;
+  margin-right: 2px;
+}
+
+/* Override PrimeReact Card styles */
+.item-card.p-card {
+  border: none;
+  background: white;
+  height: 100%;
+}
+
+.item-card .p-card-body {
+  padding: 0;
+  height: 100%;
+}
+
+.item-card .p-card-content {
+  padding: 0;
+  height: 100%;
+}
+
+.item-card .p-button {
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  background: #4a90e2;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.item-card .p-button:hover {
+  background: #357abd;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(74, 144, 226, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .item-image {
+    height: 220px;
+  }
+  .item-title {
+    font-size: 1.2rem;
+  }
+  .item-description {
+    font-size: 0.9rem;
+  }
+  .item-price {
+    font-size: 1.3rem;
+  }
+  .item-card .p-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.8rem;
+  }
+}
 .item-list-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -14,7 +228,7 @@
   padding: 3rem;
   max-width: 1400px;
   margin: 0 auto;
-  background-color: #f8f9fa;
+  background-color: #A3C4E8;
   border-radius: 1rem;
   margin-top: 2rem;
 }
@@ -25,6 +239,117 @@
     gap: 1.5rem;
     padding: 1.5rem;
   }
+}
+.item-detail-card {
+  max-width: 800px;
+  margin: 2rem auto;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #2E5A8A;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.item-detail-content {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.item-detail-image {
+  flex: 0 0 300px;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.item-detail-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.item-detail-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.item-detail-title {
+  margin: 0;
+  font-size: 2rem;
+  color: #D9E2EC;
+  font-weight: 600;
+}
+
+.item-detail-description {
+  color: #D9E2EC;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.item-detail-price {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #D9E2EC;
+  padding: 0.5rem 0;
+  border-top: 1px solid #D9E2EC;
+  border-bottom: 1px solid #D9E2EC;
+}
+
+.item-detail-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: auto;
+}
+
+.item-detail-actions .p-button {
+  align-self: stretch;
+  justify-content: center;
+  padding: 1rem;
+}
+
+/* Override PrimeReact Card styles */
+.item-detail-card .p-card {
+  border: none;
+}
+
+.item-detail-card .p-card-body {
+  padding: 0;
+}
+
+.item-detail-card .p-card-content {
+  padding: 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .item-detail-content {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  .item-detail-image {
+    flex: 0 0 auto;
+    height: 300px;
+  }
+  .item-detail-actions {
+    margin-top: 1.5rem;
+  }
+}
+.item-count-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.item-count-container .counter-buttons .boton {
+  border: #D9E2EC;
+}
+.item-count-container .counter-buttons .counter-value {
+  color: #D9E2EC;
+  padding: 2rem;
 }
 
 /*# sourceMappingURL=style.css.map */

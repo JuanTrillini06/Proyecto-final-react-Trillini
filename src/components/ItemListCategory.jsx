@@ -2,7 +2,7 @@ import React from 'react'
 import Item from './Item'
 import '../css/style.css'
 
-const ItemList = ({ products }) => {
+const ItemListCategory = ({ products }) => {
   return (
     <div className='item-list-container'>
         {
@@ -16,4 +16,4 @@ const ItemList = ({ products }) => {
   )
 }
 
-export default ItemList
+export default ItemListCategory

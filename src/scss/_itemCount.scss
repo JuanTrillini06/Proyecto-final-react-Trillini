@@ -1,0 +1,16 @@
+.item-count-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .counter-buttons{
+        .boton{
+            border: #D9E2EC;
+        }
+        .counter-value{
+            color:#D9E2EC;
+            padding: 2rem;
+        }
+    }
+    
+}
+
