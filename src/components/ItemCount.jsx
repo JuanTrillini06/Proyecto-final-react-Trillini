@@ -3,15 +3,14 @@ import { Button } from 'primereact/button';
 import { useCarrito } from '../context/CarritoContext';
 import '../css/style.css';
 
-const ItemCount = ({ setCantidad }) => {
+const ItemCount = ({ product }) => {
     const [counter, setCounter] = useState(1);
     const { agregarAlCarrito } = useCarrito();
 
     const handleAgregar = () => {
-        agregarAlCarrito(counter);
+        agregarAlCarrito(product, counter);
         setCounter(1);
     };
-
 
     return (
         <div className='item-count-container'>

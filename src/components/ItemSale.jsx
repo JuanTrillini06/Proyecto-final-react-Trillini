@@ -4,7 +4,8 @@ import Sale from './Sale';
 import '../css/style.css';
 
 const Home = ({products}) => {
-    const productosEnOferta = products.filter(product => product.oferta);
+    const productosEnOferta = products.filter(product => product.oferta === true);
+
   return (
     <div>
       <h1></h1>

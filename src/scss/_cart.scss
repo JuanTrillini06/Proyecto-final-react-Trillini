@@ -1,0 +1,29 @@
+.carrito-titulo{
+    padding: 5px;
+}
+.carrito-total{
+    padding: 5px;
+}
+.carrito-contenedor{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+.card-carrito {
+    max-width: 400px;
+    margin: 2rem 2rem;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #2E5A8A;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    color: #D9E2EC;
+    padding: 5px;
+}
+.carrito-formulario{
+    display: flex;
+    justify-content: center;
+}
