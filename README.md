@@ -8,9 +8,9 @@ La pagina se despliega en Vite con el comando "npm run dev" en la terminal del p
 
 ## Dependencias utilizadas
 
-Vite: https://vite.dev/
-Antd design: https://ant.design/
-PrimeReact: https://www.primefaces.org/primereact-v8/
-PrimeIcons: https://www.primefaces.org/primereact-v8/
-Firebase: https://firebase.google.com/?hl=es-419
-React ruter dom
+. Vite: https://vite.dev/
+. Antd design: https://ant.design/
+. PrimeReact: https://www.primefaces.org/primereact-v8/
+. PrimeIcons: https://www.primefaces.org/primereact-v8/
+. Firebase: https://firebase.google.com/?hl=es-419
+. React ruter dom
