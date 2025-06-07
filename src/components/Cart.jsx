@@ -1,12 +1,22 @@
-import React from 'react';
+import {useState} from 'react';
 import { useCarrito } from '../context/CarritoContext';
 import { Form, Input, InputNumber, Switch, Select, Button } from 'antd';
 import '../css/style.css'
 
 const Cart = () => {
-    const { carrito, calcularTotal, eliminarDelCarrito } = useCarrito();
+    const { carrito, calcularTotal, eliminarDelCarrito, eliminarCarrito, incrementarCantidad, decrementarCantidad } = useCarrito();
 
     const { TextArea } = Input;
+
+    const [form] = Form.useForm();
+
+    const handleSubmit = () => {
+        form.resetFields(); // Vacía los campos
+        
+    };
+
+    const [counter, setCounter] = useState(1);
+
     return (
         <div >
             <h2 className='carrito-titulo'>Resumen de Compras: </h2>
@@ -22,35 +32,39 @@ const Cart = () => {
                             <p>Precio unitario: ${producto.price}</p>
                             <p>Cantidad: {producto.cantidad}</p>
                             <p>Subtotal: ${producto.price * producto.cantidad}</p>
+                            <div style={{ display: "flex", gap: "10px", alignItems: "center", padding: "10px" }}>
+                                <Button onClick={() => decrementarCantidad(producto.id)}>-</Button>
+                                <InputNumber  min={1} value={producto.cantidad} readOnly />
+                                <Button onClick={() => incrementarCantidad(producto.id)}>+</Button>
+                            </div>
                             <Button color="red" variant="filled" onClick={() => eliminarDelCarrito(producto.id)}>ELIMINAR</Button>
                         </div>
                     ))}
                     </div>
                     <div className='carrito-formulario'>
-                    <Form
-                    layout="horizontal">
-                        <Form.Item label="Nombre" rules={[{ required: true }]}>
+                    <Form form={form} layout="horizontal">
+                        <Form.Item label="Nombre" name="nombre" rules={[{ required: true }]}>
                             <Input />
                         </Form.Item>
-                        <Form.Item label="Apellido" rules={[{ required: true }]}>
+                        <Form.Item label="Apellido" name="apellido" rules={[{ required: true }]}>
                             <Input />
                         </Form.Item>
-                        <Form.Item label="Email" rules={[{ required: true }]}>
+                        <Form.Item label="Email" name="email" rules={[{ required: true }]}>
                             <Input />
                         </Form.Item>
-                        <Form.Item label="Teléfono" rules={[{ required: true }]}>
+                        <Form.Item label="Teléfono" name="telefono" rules={[{ required: true }]}>
                             <InputNumber />
                         </Form.Item>
-                        <Form.Item label="DNI" rules={[{ required: true }]}>
+                        <Form.Item label="DNI" name="dni" rules={[{ required: true }]}>
                             <InputNumber />
                         </Form.Item>
-                        <Form.Item label="Domicilio" rules={[{ required: true }]}>
+                        <Form.Item label="Domicilio" name="domicilio" rules={[{ required: true }]}>
                             <Input />
                         </Form.Item>
-                        <Form.Item label="Localidad" rules={[{ required: true }]}>
+                        <Form.Item label="Localidad" name="localidad" rules={[{ required: true }]}>
                             <Input />
                         </Form.Item>
-                        <Form.Item label="Provincia" rules={[{ required: true }]}>
+                        <Form.Item label="Provincia" name="provincia" rules={[{ required: true }]}>
                             <Select>
                                 <Select.Option value="Buenos Aires">Buenos Aires</Select.Option>
                                 <Select.Option value="Catamarca">Catamarca</Select.Option>
@@ -77,22 +91,22 @@ const Cart = () => {
                                 <Select.Option value="Tucumán">Tucumán</Select.Option>
                             </Select>
                         </Form.Item>
-                        <Form.Item label="Código postal" rules={[{ required: true }]}>
+                        <Form.Item label="Código postal" name="codigopostal" rules={[{ required: true }]}>
                             <InputNumber />
                         </Form.Item>
-                        <Form.Item label="Observacion">
+                        <Form.Item label="Observacion" name="observacion">
                             <TextArea rows={4} />
                         </Form.Item>
-                        <Form.Item label="Terminos Y Acuerdos" rules={[{ required: true }]} >
+                        <Form.Item label="Terminos Y Acuerdos" name="condiciones" rules={[{ required: true }]} >
                             <Switch />
                         </Form.Item>
-                        <Form.Item label="¿Desea recibir notificaciones por correo electrónico?">
+                        <Form.Item label="¿Desea recibir notificaciones por correo electrónico?" name="newsletter">
                             <Switch />
                         </Form.Item>
-                        <Form.Item label="¿Desea recibir notificaciones por SMS?">
+                        <Form.Item label="¿Desea recibir notificaciones por SMS?" name="smsnewsletter">
                             <Switch />
                         </Form.Item>
-                        <Button color="green" htmlType="submit" variant="solid" >COMPRAR</Button>
+                        <Button color="green" htmlType="submit" variant="solid"  onClick={() => {handleSubmit(); eliminarCarrito();}} >COMPRAR</Button>
                     </Form>
                     </div>
                 </div>

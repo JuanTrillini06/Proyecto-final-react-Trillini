@@ -34,12 +34,46 @@ export const CarritoProvider = ({ children }) => {
         return carrito.reduce((total, product) => total + (product.price * product.cantidad), 0);
     };
 
-    const eliminarDelCarrito = (productId) => {
-        setCarrito(prevCarrito => prevCarrito.filter(product => product.id !== productId));
+    const incrementarCantidad = (productId) => {
+    setCarrito(prevCarrito => 
+        prevCarrito.map(product => 
+            product.id === productId 
+                ? { ...product, cantidad: product.cantidad + 1 } 
+                : product
+        )
+    );
+};
+
+const decrementarCantidad = (productId) => {
+    setCarrito(prevCarrito => 
+        prevCarrito.map(product => 
+            product.id === productId && product.cantidad > 1
+                ? { ...product, cantidad: product.cantidad - 1 }
+                : product
+        ).filter(product => product.cantidad > 0) // Elimina productos con cantidad 0
+    );
+};
+
+const eliminarDelCarrito = (productId, cantidadAEliminar) => {
+    setCarrito(prevCarrito => {
+        return prevCarrito.map(product => {
+            if (product.id === productId) {
+                const nuevaCantidad = product.cantidad - cantidadAEliminar;
+                return nuevaCantidad > 0 
+                    ? { ...product, cantidad: nuevaCantidad } 
+                    : null; // Si la cantidad es 0, lo eliminamos
+            }
+            return product;
+        }).filter(product => product !== null); // Filtramos los productos eliminados
+    });
+};
+
+    const eliminarCarrito = () => {
+        setCarrito([]);
     };
 
     return (
-        <CarritoContext.Provider value={{ carrito, agregarAlCarrito, calcularTotal, eliminarDelCarrito, cantidadCarrito }}>
+        <CarritoContext.Provider value={{ carrito, agregarAlCarrito, calcularTotal, eliminarDelCarrito, eliminarCarrito, incrementarCantidad, decrementarCantidad, cantidadCarrito }}>
             {children}
         </CarritoContext.Provider>
     );
