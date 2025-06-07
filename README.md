@@ -1,12 +1,16 @@
-# React + Vite
+# Juandrobe
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es una pagina E-Commerce creada en base a lo visto durante el curso de ReactJS
 
-Currently, two official plugins are available:
+## Funcionamiento
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+La pagina se despliega en Vite con el comando "npm run dev" en la terminal del proyecto, la misma cuenta con una página de inicio la cual muestra todos los productos disponibles, se puede filtrar por categoria de productos, visualizar productos en oferta, entrar al detalle de cada producto, modificar la cantidad de cada uno, añadir al carrito, visualizar el carrito y eliminar productos.
 
-## Expanding the ESLint configuration
+## Dependencias utilizadas
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+. Vite: https://vite.dev/
+. Antd design: https://ant.design/
+. PrimeReact: https://www.primefaces.org/primereact-v8/
+. PrimeIcons: https://www.primefaces.org/primereact-v8/
+. Firebase: https://firebase.google.com/?hl=es-419
+. React ruter dom
